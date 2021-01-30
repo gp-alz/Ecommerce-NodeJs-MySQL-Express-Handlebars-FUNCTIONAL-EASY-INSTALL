@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RafaelGoulartB/Ecommerce-Quantum.git"
+    "url": "git+https://github.com/gp-alz/Ecommerce-NodeJs-MySQL-Express-Handlebars-FUNCTIONAL-EASY-INSTALL.git"
   },
-  "author": "Rafael GoulartB",
+  "author": "Lord Pol",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RafaelGoulartB/Ecommerce-Quantum/issues"
+    "url": "https://github.com/gp-alz/Ecommerce-NodeJs-MySQL-Express-Handlebars-FUNCTIONAL-EASY-INSTALL"
   },
-  "homepage": "https://github.com/RafaelGoulartB/Ecommerce-Quantum#readme",
+  "homepage": "https://github.com/gp-alz/Ecommerce-NodeJs-MySQL-Express-Handlebars-FUNCTIONAL-EASY-INSTALL",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
