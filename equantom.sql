@@ -88,6 +88,7 @@ INSERT INTO `product_categories` (`idcategory`, `categoryname`) VALUES
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `admin` int(1) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -96,17 +97,18 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(3, 'wefewhf', 'wefeiuwf@gmail.com', '$2a$10$43F6yQOIbQ3/aER/XB2d4OP9qsV1K988Y4/OOE5OWVFDHk6pB7AY2'),
-(4, 'amin', 'admin@admin.com', '$2a$10$HQYJU216Wu3RtKPdbR8aqu/04gNUdxn6EpcWc73vn5BiHoVCFCnES'),
-(5, 'rafael', 'rafaelgoulartb@gmail.com', '$2a$10$nxrkZIRafbTsgtJTcFfgleVkuuH/MmzwGUvbIhH0VKb4AdUgDJawq'),
-(6, 'opresor', 'opresor@protonmail.com', '$2a$10$RgS9EYuOxhwODKmTgBlK9OOUbDE8bmcRRf8Yi4kraLzfVpdkW5lT.'),
-(7, 'ewfwf', 'wfewefw@ewfwfw.com', '$2a$10$OWbDkDphF.L11kIGiz1YzuXj7tYzs9b1hh/yHp9UkY2ciMlQ1CHqW'),
-(8, 'wfgewfgwegrhgol', 'rafael@gmail.com', '$2a$10$alIXffXgTI7nWm.5Nlcnnuhq8EvZOxMGoR8IHK.48iPB/bEXvCae.'),
-(9, 'test', 'test@test.com', '$2a$10$G6k09m2y3kLkaNRV4K0.POKsZYaYIaEb86VJWGBYtXZ2FOF6iptKW'),
-(10, 'rafaell', 'rafael@gmail.comm', '$2a$10$ozcBdNwEdS6q2I1NqFdRdeFwPbDKQJHkOce3.f3G3rLjxU82I9nrS'),
-(11, 'rafaelll', 'rafael@gmail.commmmm', '$2a$10$WtFCu09VzN6Y9B.lhiklCuNFGPiu5CFwXyUtPLWByGfNrsrziyEeK'),
-(12, 'rafael_f', 'rafael_f@eu.com', '$2a$10$2tp5oXwOTTx9cYw27ztIF.bU/fNDixmLyVqB3Jrfd32AVrHuQgS4G');
+INSERT INTO `users` (`id`,`username`,`admin`, `email`, `password`) VALUES
+(3, 'wefewhf',0, 'wefeiuwf@gmail.com', '$2a$10$43F6yQOIbQ3/aER/XB2d4OP9qsV1K988Y4/OOE5OWVFDHk6pB7AY2'),
+(4, 'amin',1, 'admin@admin.com', '$2a$10$HQYJU216Wu3RtKPdbR8aqu/04gNUdxn6EpcWc73vn5BiHoVCFCnES'),
+(5, 'rafael',0, 'rafaelgoulartb@gmail.com', '$2a$10$nxrkZIRafbTsgtJTcFfgleVkuuH/MmzwGUvbIhH0VKb4AdUgDJawq'),
+(6, 'opresor',0, 'opresor@protonmail.com', '$2a$10$RgS9EYuOxhwODKmTgBlK9OOUbDE8bmcRRf8Yi4kraLzfVpdkW5lT.'),
+(7, 'ewfwf',0, 'wfewefw@ewfwfw.com', '$2a$10$OWbDkDphF.L11kIGiz1YzuXj7tYzs9b1hh/yHp9UkY2ciMlQ1CHqW'),
+(8, 'wfgewfgwegrhgol',0, 'rafael@gmail.com', '$2a$10$alIXffXgTI7nWm.5Nlcnnuhq8EvZOxMGoR8IHK.48iPB/bEXvCae.'),
+(9, 'test',0, 'test@test.com', '$2a$10$G6k09m2y3kLkaNRV4K0.POKsZYaYIaEb86VJWGBYtXZ2FOF6iptKW'),
+(10, 'rafaell',0, 'rafael@gmail.comm', '$2a$10$ozcBdNwEdS6q2I1NqFdRdeFwPbDKQJHkOce3.f3G3rLjxU82I9nrS'),
+(11, 'rafaelll',0, 'rafael@gmail.commmmm', '$2a$10$WtFCu09VzN6Y9B.lhiklCuNFGPiu5CFwXyUtPLWByGfNrsrziyEeK'),
+(12, 'rafael_f',0, 'rafael_f@eu.com', '$2a$10$2tp5oXwOTTx9cYw27ztIF.bU/fNDixmLyVqB3Jrfd32AVrHuQgS4G'),
+(13, 'PolAlz',1, 'gp99alz@gmail.com', '$2a$10$/LCPJhDs1UZA.mgDezN/8uJL/WU.ISG8b6WziTD5ufH4OchZb9GoS');
 
 --
 -- Indexes for dumped tables
@@ -131,6 +133,7 @@ ALTER TABLE `product_categories`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `admin` (`admin`),
   ADD UNIQUE KEY `email` (`email`);
 
 --

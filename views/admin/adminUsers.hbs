@@ -1,0 +1,128 @@
+{{# if empty }}
+          
+{{ else }}
+<section class="productsCart">
+
+  <aside>
+    <div class="promo-code">
+      <div class="texts">
+        <p class="logo">Administración de usuarios</p>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <nav>
+      <ul class="filters">
+        <li class="filter"><a>ID</a></li>
+        <li class="filter"><a>Icono</a></li>
+        <li class="filter"><a>Usuario</a></li>
+        <li class="filter"><a>Estado</a></li>
+        <li class="filter"><a>Acciones</a></li>
+      </ul>
+
+
+      <div class="search-box">
+      <form action="#" method="get">
+        <div class="inputs">
+          <input type="submit" id="submit-search" value="">
+          <input type="text" placeholder="Buscar" name="search-term">
+        </div>
+      </form>
+    </div>
+      <div class="display">
+        <div class="vertical-line"></div>
+      </div>
+    </nav>
+
+    <div class="products-list">
+
+      <form >
+      {{# each users}}
+
+          <div class="product">
+
+            
+            
+          <div class="labels">
+                <p class="name">{{this.id}}</p>
+          </div>
+          
+          <div class="labels">
+                <img src="/img/icons/ic_account_circle.png" alt="Sign In">
+          </div>
+          
+          <div class="labels">
+                <p class="name">{{this.username}}</p>
+          </div>
+          
+          <div class="labels">
+                <p class="name">{{this.email}}</p>
+          </div>
+          
+          
+          {{# if user.admin }}
+          <div class="labels" >
+              
+            <p class="name">Administrador</p>
+            
+            
+          </div>
+
+          {{else}}
+
+            <div class="labels" >
+              
+            <p class="name">Cliente</p>
+            
+            
+          </div>
+          {{/if}}
+
+          
+
+          <div class="labels">
+              
+            <a href="#">
+            <p class="filtro">Editar</p> </a>
+              
+          </div>
+
+
+          <div class="labels">
+              
+            <a href="#">
+            <p class="prodElim">Conceder privilegios de Administrador</p> </a>
+              
+          </div>
+
+          <div class="labels">
+              
+            <a href="#">
+            <p class="prodElim">Bloquear</p> </a>
+              
+          </div>
+        </div>
+
+        
+
+          
+      {{/each}}
+      </form>
+    </div>
+
+  
+
+
+  </main>
+
+  <aside>
+    
+  </aside>
+
+
+</section>  
+
+{{/if}}
+
+<script src="/js/rating.js"></script>

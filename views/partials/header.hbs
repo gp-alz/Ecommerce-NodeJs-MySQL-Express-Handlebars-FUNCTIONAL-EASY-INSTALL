@@ -1,102 +1,72 @@
 <header id="header">
-  <div class="nav-top">
-    <a href="/" class="logo">Quantum</a>
-    <div class="search-box">
-      <form action="#" method="get">
-        <div class="inputs">
-          <input type="submit" id="submit-search" value="">
-          <input type="text" placeholder="Search goods" name="search-term">
-        </div>
-        <div class="select">
-          <select name="category" id="category-to-search">
-            <option value="" selected="selected">
-              Category >
-            </option>
-            {{# each categories }}
-              <option value={{this.idcategory}}>{{this.categoryname}}</option>
-            {{/each}}
-          </select>
-        </div>
-      </form>
-    </div>
-    <div class="actions-items">
-      <div class="action-item">
-        <img src="/img/icons/ic_shopping_cart.png" alt="Items in cart">
-        <a href="/cart"><span id="items-in-cart"></span>Items</a>
-      </div>
-      <div class="action-item">
-        <img src="/img/icons/ic_favorite_border.png" alt="Items in wishlist">
-        <a href="/wishlist">Wish List</a>
-      </div>
-      <div class="action-item">
-        <img src="/img/icons/ic_account_circle.png" alt="Sign In">
-        {{# if user }}
-          <div class="user-session">
-            <p class="username">{{user.username}}</p>
-            <a href="/log-out">Log Out</a>
-          </div>
-        {{ else }}
-          <a href="/sign-in">Sign In</a>
-        {{/if}}
-      </div>
-    </div>
-  </div>
-  <div class="line-div"></div>
-  <div class="nav-bottom">
-    <div class="all-categories dropdown">
-      <div class="cta">
-        <img src="/img/icons/ic_menu.png" alt="Dropdown all categories">
-        All Categories
-      </div>
-      <div class="submenu-dropdown">
-        {{# each categories }}
-          <a href="/filter/{{this.categoryname}}">{{this.categoryname}}</a>
-        {{/each}}
-      </div>
-    </div>
 
-    <div class="vertical-line"></div>
 
+  <div class="listeds">
+    <div class="top">
+    <a href="/" class="logo">bāzār</a>
     <ul class="links">
-      <li class="link"><a href="#">Super Deals</a></li>
-      <li class="link"><a href="#">Featured Brands</a></li>
-      <li class="link"><a href="#">Collections</a></li>
-      <li class="link"><a href="#">Bestselling</a></li>
+
+      
+      <li class="link"><a href="/order/price">
+      <img src="/img/icons/ic_add_list.png" alt="Items in cart">
+       Productos
+      </a></li>
+      
+
+      
+      <li class="link">
+        <a href="/cart">
+      <img src="/img/icons/ic_shopping_cart.png" alt="Items in cart">
+       Carrito
+      </a></li>
+      
+      
+      {{# if user.admin }}
+      
+      <li class="link"><a href="/adminPage">
+      <img src="/img/icons/ic_account_circle.png" alt="Sign In">
+       Administrador
+      </a></li>
+      
+      {{/if}}
+
+      
+      
+      {{# if user }}
+      <li class="link">
+        
+        <a href="/log-out">
+        <img src="/img/icons/ic_arrow_down.png" alt="Sign In"> Cerrar sesión
+        </a>
+      </li>
+      <li class="link">
+        <a> 
+          <img src="/img/icons/ic_account_circle.png" alt="Sign In"> {{user.username}}
+        </a>
+      </li>
+        {{ else }}
+        <li class="link"><a href="/sign-in">
+        <img src="/img/icons/ic_arrow_right.png" alt="Items in cart"> Iniciar sesión
+        </a></li> 
+        {{/if}}
     </ul>
-    <div class="config-site">
-      <div class="vertical-line"></div>
-      <div class="help-config config dropdown">
-        <div class="cta">
-          Help
-          <img src="/img/icons/ic_arrow_down.png">
-        </div>
-        <div class="submenu-dropdown">
-          <a href="#">Forum</a>
-          <a href="#">FAQ</a>
-        </div>
-      </div>
-      <div class="vertical-line"></div>
-      <div class="currency-config config dropdown">
-        <div class="cta">
-          USD
-          <img src="/img/icons/ic_arrow_down.png">
-        </div>
-        <div class="submenu-dropdown">
-          <a href="#">BRL</a>
-          <a href="#">XBT</a>
-        </div>
-      </div>
-      <div class="vertical-line"></div>
-      <div class="language-config config dropdown">
-        <div class="cta">
-          Language
-          <img src="/img/icons/ic_arrow_down.png">
-        </div>
-        <div class="submenu-dropdown">
-          <a href="#">Portuguese</a>
-          <a href="#">English</a>
-        </div>
-      </div>
+
+    <ul class="social-links">
+      <li class="link"><img src="/img/icons/social/ic_facebook.png" alt="Facebook"></li>
+      <li class="link"><img src="/img/icons/social/ic_twitter.png" alt="Twitter"></li>
+      <li class="link"><img src="/img/icons/social/ic_instagram.png" alt="Instagram"></li>
+      <li class="link"><img src="/img/icons/social/ic_youtube.png" alt="Youtube"></li>
+    </ul>
+    
     </div>
+
+   
+  
   </div>
+
+
+
+
+  
+
 </header>

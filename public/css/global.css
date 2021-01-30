@@ -1,11 +1,15 @@
 main {
   min-height: 60vh;
+  background-color: #fafafa;
 }
 body, html {
   font-family: 'Roboto', sans-serif;
   background-color: #fafafa;
 }
 main {
+  background-color: #fafafa;
+}
+.container-bg {
   background-color: #fafafa;
 }
 .container {
@@ -18,9 +22,10 @@ main {
   letter-spacing: 1.25px;
   color: #4c4c4c;
   text-decoration: none;
+  margin-right: 1%;
 }
 .msg-div {
-  width: 80vw;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
@@ -28,9 +33,11 @@ main {
 }
 .msg-text {
   font-size: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
 }
 .success {
   background-color: #D4EDDA;
@@ -81,4 +88,76 @@ main {
 }
 .dropdown .submenu-dropdown a:hover {
   text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.listeds .top, .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+/* Footer top */
+.listeds .top .links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 45%;
+}
+.listeds .top .links a {
+  text-decoration: none;
+  color: #666666;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+.listeds .top .links a:hover {
+  text-decoration: underline;
+}
+.listeds .top .social-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 13%;
+}
+/* Fotter bottom */
+.listeds .bottom .credibility {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #b2b2b2;
+  width: 40%;
+  font-size: 15px;
+}
+.listeds .bottom .payment-methods {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #b2b2b2;
+  width: 40%;
+}
+.listeds .bottom .payment-methods .desc {
+  font-size: 15px;
 }

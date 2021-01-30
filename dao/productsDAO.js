@@ -1,7 +1,10 @@
+
 class productsDAO {
   constructor(connection) {
     this.connection = connection;
   }
+
+
   list(limit=null) {
     return new Promise((resolve, reject) => {
       if (limit) {
@@ -25,6 +28,34 @@ class productsDAO {
       }
     });
   }
+
+
+  listUsers(limit=null) {
+    return new Promise((resolve, reject) => {
+      if (limit) {
+        this.connection
+            .query('select * from users LIMIT ?', limit,
+                (err, result) => {
+                  if (err) return reject(err);
+                  return resolve(result);
+                }
+            );
+      }
+      // End Queries for limits
+      else {
+        this.connection
+            .query('select * from users',
+                (err, result) => {
+                  if (err) return reject(err);
+                  return resolve(result);
+                }
+            );
+      }
+    });
+  }
+ 
+
+
   orderedList(order=null) {
     return new Promise((resolve, reject) => {
       if (order == 'low-price') {
@@ -56,5 +87,7 @@ class productsDAO {
     });
   }
 }
+
+
 
 module.exports = () => productsDAO;

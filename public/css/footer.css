@@ -32,6 +32,8 @@ footer .top .social-links {
   align-items: center;
   justify-content: space-between;
   width: 13%;
+  padding-left: 10px;
+  margin-left: 10px;
 }
 /* Fotter bottom */
 footer .bottom .credibility {

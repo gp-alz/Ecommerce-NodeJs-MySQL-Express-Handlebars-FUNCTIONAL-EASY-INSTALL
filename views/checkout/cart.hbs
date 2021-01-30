@@ -1,1 +1,114 @@
-<h1>Cart</h1>
+{{# if empty }}
+          
+{{ else }}
+<section class="productsCart">
+  
+     
+
+  <aside>
+    <div class="promo-code">
+      <div class="texts">
+        <p class="logo">SU CARRITO DE COMPRAS</p>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <nav>
+      <ul class="filters">
+        <li class="filter"><a>Ordenar productos por precio</a></li>
+        <li class="filter"><a href="/order/low-price">Más bajos</a></li>
+        <li class="filter"><a href="/order/price">Más altos</a></li>
+        
+      </ul>
+
+      <div class="search-box">
+      <form action="#" method="get">
+        <div class="inputs">
+          <input type="submit" id="submit-search" value="">
+          <input type="text" placeholder="Buscar" name="search-term">
+        </div>
+      </form>
+    </div>
+
+    
+      <div class="display">
+
+        
+        <div class="vertical-line"></div>
+        
+      </div>
+    </nav>
+
+
+    
+    <div class="products-list">
+
+      <form >
+      {{# each products}}
+    
+
+
+        
+        <div class="product">
+          <div class="labels">
+              <img src="/img/products/{{this.img_url}}" alt="{{this.name}}" class="product-img">
+          </div>
+          
+          <div class="labels">
+                <p class="name">{{this.name}}</p>
+          </div>
+          
+          
+          <div class="labels" >
+              
+            <p class="name">$ {{this.price}}</p>
+            
+          </div>
+
+          <div class="labels" >
+            
+            <div class="form-group row" >
+            <div class="col-10">
+                <input class="form-control" type="number" value="1" id="example-number-input">
+            </div>
+            </div>
+          </div>
+
+          <div class="labels">
+              
+            <a href="/remove-from-cart/{{this.id}}">
+            <p class="prodElim">Eliminar Producto</p> </a>
+              
+          </div>
+        </div>
+
+      {{/each}}
+      </form>
+    </div>
+
+
+     
+    <nav>
+      <ul class="filters">
+        <li class="filter"><a href="/clearCart">Eliminar productos</a></li>
+        <li class="filter"><a href="/order/price">Seguir comprando</a></li>
+        <li class="filter"><a href="/order/price">
+        <p class="filtro">Pagar</p>
+        </a></li>
+      </ul>
+    </nav>
+
+
+  </main>
+
+  <aside>
+    
+  </aside>
+
+
+</section>  
+
+{{/if}}
+
+<script src="/js/rating.js"></script>

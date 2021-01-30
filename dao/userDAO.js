@@ -13,8 +13,8 @@ class UserDAO {
                 const emailNotExist = Object.entries(result).length === 0;
                 if (emailNotExist) {
                   this.connection
-                      .query('INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (null, ?, ?, ?)',
-                          [username, email, cryptedPassword],
+                      .query('INSERT INTO `users` (`id`, `username`, `admin`,`email`, `password`) VALUES (null,?, ?, ?, ?)',
+                          [username, 0,email, cryptedPassword],
                           (err, result) => {
                             if (err) return reject(err);
                             return resolve('User was created!');
@@ -24,6 +24,10 @@ class UserDAO {
               });
     });
   }
+
+ 
+  
+
   login(email, password) {
     return new Promise((resolve, reject) => {
       this.connection.query('select * from users where email = ?', email,
@@ -41,12 +45,26 @@ class UserDAO {
           });
     });
   }
-  getUsername(email) {
+
+  isAdmin(email){
     return new Promise((resolve, reject) => {
-      this.connection.query('select username from users where email = ?', email,
+      this.connection.query('select admin from users where email = ?', email,
           (err, result) => {
             if (err) return reject(err);
-            console.log(result[0].username);
+            console.log("HERE: admin: ", result[0].admin);
+            return resolve(result[0].admin);
+          });
+    });
+  }
+
+
+
+  getUsername(email) {
+    return new Promise((resolve, reject) => {
+        this.connection.query('select username from users where email = ?', email,
+          (err, result) => {
+            if (err) return reject(err);
+            console.log("HERE: USER: ", result[0].username);
             return resolve(result[0].username);
           });
     });

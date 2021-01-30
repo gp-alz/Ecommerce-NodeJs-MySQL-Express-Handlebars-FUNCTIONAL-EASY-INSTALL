@@ -30,14 +30,40 @@ module.exports = (app) => {
     const connection = app.dao.connectionFactory();
     const userDao = new app.dao.userDAO(connection);
 
+
+    var isAdmin ;
+
+    //get admin state to show admin panel if admin
+    userDao.isAdmin(email)
+        .then((result) => {
+          console.log("test RESULT : ", result);
+          isAdmin = result;
+        })
+        .catch((err) => {
+          console.log("Admin state error");
+        });
+
+    var username;
+
+    //get username for frontend
+    userDao.getUsername(email)
+        .then((result) => {
+          console.log("test RESULT : ", result);
+          username = result;
+        })
+        .catch((err) => {
+          console.log("Username get error");
+        });
+
+
     userDao.login(email, password)
         .then((result) => {
           req.session['success'] = result;
           // Create Session
           req.session['user'] = {
-            username: 'username',
+            username: username,
             email: email,
-            admin: false,
+            admin: isAdmin,
             cart: null,
           };
 
@@ -47,5 +73,7 @@ module.exports = (app) => {
           req.session['warning'] = err;
           res.redirect('/sign-in');
         });
+
+
   });
 };

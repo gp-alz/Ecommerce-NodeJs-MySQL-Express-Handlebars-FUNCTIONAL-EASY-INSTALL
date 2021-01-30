@@ -16,36 +16,42 @@ header .nav-top {
   padding-top: 2em;
   padding-bottom: 2em;
 }
-header .search-box {
+.search-box {
   display: flex;
   width: 32%;
   border: 2px solid #F5F5F5;
   border-radius: 3px;
   height: 35px;
+  align-items: center;
+  padding-left: 25px;
+  margin-left: 25px;
+  padding-right: 10px;
+  margin-right: 10px;
+  margin-top: 7px;
 }
-header .search-box form {
+.search-box form {
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-header .search-box form .inputs {
+.search-box form .inputs {
   display: flex;
   align-items: center;
 }
-header .search-box form input[type='text'] {
+.search-box form input[type='text'] {
   border: none;
   margin-left: 10px;
 }
-header .search-box form input[type='submit'] {
+.search-box form input[type='submit'] {
   background-image: url('../img/icons/ic_search.png');
   width: 15px;
   height: 15px;
   background-color: transparent;
   border: none;
 }
-header .search-box select {
+.search-box select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -57,7 +63,7 @@ header .search-box select {
   font-weight: 600;
   font-size: 12px;
 }
-header .search-box .select img {
+.search-box .select img {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -90,7 +96,7 @@ header .nav-top .actions-items .action-item .user-session {
   text-align: center;
 }
 header .nav-top .actions-items .action-item .user-session a {
-  font-size: 10px;
+  font-size: 13px;
 }
 /* Nav Bottom */
 header .nav-bottom {
@@ -106,6 +112,8 @@ header .nav-bottom .all-categories {
 header .nav-bottom .all-categories img {
   margin-right: 10px;
 }
+
+
 header .nav-bottom .links {
   display: flex;
   justify-content: space-between;
