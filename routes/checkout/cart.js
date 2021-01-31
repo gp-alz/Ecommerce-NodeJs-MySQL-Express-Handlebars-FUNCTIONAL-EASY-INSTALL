@@ -18,11 +18,28 @@ module.exports = (app) => {
       });
     }else{
 
+
+      const valueDAO = new app.dao.productsDAO(connection);
+      var value;
+
+      valueDAO.getValues(productsInCartIds)
+          .then((result) => value = result)
+          .catch((err) => warning = 'it was not possible list users');
+
       productsDao.getById(productsInCartIds)
         .then((products) => {
+
+
+          var myVar = JSON.stringify(value);
+          var myVar2 = JSON.parse(myVar)
+          console.log("exact: ",myVar2);
+          console.log("especific:", myVar2.value);
+
           res.render('checkout/cart', {
             title: 'Cart',
             success, warning,
+            myVar: myVar,
+            value,
             products,
             user: req.session['user']
           });

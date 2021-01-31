@@ -26,13 +26,33 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 
+   <!-- PAYPAL INTEGRATION. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
+
+  <!-- PAYPAL INTEGRATION. -->
+
+
+
 </head>
 <body>
 
-  
+
+  <!-- PAYPAL INTEGRATION. -->
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=SB_CLIENT_ID"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+  </script>
+  <!-- PAYPAL INTEGRATION. -->
+
+
+
+
+
   {{> header}}
+    <div class="backg">
     {{#if success}}
-    <section class="productsCart">
+    <section class="productsMsg">
       <div></div>
       <div class="success msg-div">
         <p class="success-text msg-text">{{ success }}</p>
@@ -41,7 +61,7 @@
     {{/if}}
 
     {{#if warning}}
-    <section class="productsCart">
+    <section class="productsMsg">
     <div></div>
       <div class="warning msg-div">
         <p class="warning-text msg-text">{{ warning }}</p>
@@ -49,6 +69,7 @@
     </section>
     
     {{/if}}
+    </div>
     <main>
       <div class="container-bg">
         <div class="container">

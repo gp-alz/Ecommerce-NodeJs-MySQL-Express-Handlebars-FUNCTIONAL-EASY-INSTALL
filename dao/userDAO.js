@@ -24,7 +24,6 @@ class UserDAO {
               });
     });
   }
-
  
   
 
@@ -51,7 +50,6 @@ class UserDAO {
       this.connection.query('select admin from users where email = ?', email,
           (err, result) => {
             if (err) return reject(err);
-            console.log("HERE: admin: ", result[0].admin);
             return resolve(result[0].admin);
           });
     });
@@ -64,7 +62,6 @@ class UserDAO {
         this.connection.query('select username from users where email = ?', email,
           (err, result) => {
             if (err) return reject(err);
-            console.log("HERE: USER: ", result[0].username);
             return resolve(result[0].username);
           });
     });

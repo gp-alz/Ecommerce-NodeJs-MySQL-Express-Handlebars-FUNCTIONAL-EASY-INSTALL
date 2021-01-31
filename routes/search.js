@@ -15,6 +15,7 @@ module.exports = (app) => {
           products: result,
           success, warning,
           active_tab: ActiveTab,
+          user: req.session['user']
         }))
         .catch((err) => console.log(err));
   });

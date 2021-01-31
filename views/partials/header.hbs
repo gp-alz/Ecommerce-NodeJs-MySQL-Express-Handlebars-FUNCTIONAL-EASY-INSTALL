@@ -3,50 +3,54 @@
 
   <div class="listeds">
     <div class="top">
+      
     <a href="/" class="logo">bāzār</a>
     <ul class="links">
 
       
-      <li class="link"><a href="/order/price">
-      <img src="/img/icons/ic_add_list.png" alt="Items in cart">
-       Productos
-      </a></li>
+      <li class="link mx-3">
+      <a href="/order/price"><img src="/img/icons/ic_add_list.png" alt="Items in cart"> Productos
+      </a>
+      </li>
       
 
       
-      <li class="link">
+      <li class="link mx-3">
         <a href="/cart">
-      <img src="/img/icons/ic_shopping_cart.png" alt="Items in cart">
-       Carrito
+      <img src="/img/icons/ic_shopping_cart.png" alt="Items in cart"> Carrito
       </a></li>
       
       
+      
+
+      
+      
+      {{# if user }}
+      <li class="link mx-3">
+        
+        <a href="/log-out">
+        <img src="/img/icons/ic_arrow_down.png" alt="Sign In"> Cerrar sesión
+        </a>
+      </li>
+
+
       {{# if user.admin }}
       
-      <li class="link"><a href="/adminPage">
+      <li class="link mx-3"><a href="/adminPage">
       <img src="/img/icons/ic_account_circle.png" alt="Sign In">
        Administrador
       </a></li>
       
       {{/if}}
 
-      
-      
-      {{# if user }}
-      <li class="link">
-        
-        <a href="/log-out">
-        <img src="/img/icons/ic_arrow_down.png" alt="Sign In"> Cerrar sesión
-        </a>
-      </li>
-      <li class="link">
+      <li class="link mx-3">
         <a> 
           <img src="/img/icons/ic_account_circle.png" alt="Sign In"> {{user.username}}
         </a>
       </li>
         {{ else }}
-        <li class="link"><a href="/sign-in">
-        <img src="/img/icons/ic_arrow_right.png" alt="Items in cart"> Iniciar sesión
+        <li class="link mx-3"><a href="/sign-in">
+        <img src="/img/icons/ic_arrow_right.png" alt="Items in cart">Iniciar sesión
         </a></li> 
         {{/if}}
     </ul>
@@ -64,9 +68,5 @@
   
   </div>
 
-
-
-
-  
-
+ 
 </header>
