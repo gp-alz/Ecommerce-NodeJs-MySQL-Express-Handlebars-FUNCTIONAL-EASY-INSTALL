@@ -41,7 +41,7 @@ module.exports = (app) => {
     }
   });
 
-
+  
 
 
   //set another (or first) product in shopping cart (cookie)
