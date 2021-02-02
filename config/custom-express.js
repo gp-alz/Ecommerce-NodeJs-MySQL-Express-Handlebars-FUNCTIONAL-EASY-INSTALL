@@ -8,6 +8,16 @@ const session = require('express-session');
 const csrf = require('csurf');
 const validator = require('express-validator');
 const cors = require('cors');
+let i18n = require('i18n');
+
+i18n.configure({
+  // setup some locales - other locales default to en silently
+  locales:['es','en','fr'],
+  defaultLocale: "es",
+
+  // where to store json files - defaults to './locales' relative to modules directory
+  directory: __dirname + '/locales'
+});
 
 class AppController {
   constructor() {
@@ -27,10 +37,17 @@ class AppController {
       resave: false,
       saveUninitialized: true,
     }));
-    this.app.use(cors())
+    this.app.use(cors());
+
     this.app.use(csrf({cookie: true}));
     this.app.use(validator());
-
+    this.app.use(i18n.init);
+    this.app.use(function (req, res, next) {
+      var locale = 'es';
+      req.setLocale(locale);
+      res.locals.language = locale;
+      next();
+  });
     this.app.engine('hbs', hbs({
       extname: 'hbs',
       defaultLayout: 'layout',
