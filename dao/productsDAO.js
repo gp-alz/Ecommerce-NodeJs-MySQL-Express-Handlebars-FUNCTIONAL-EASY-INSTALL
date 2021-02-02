@@ -137,8 +137,53 @@ class productsDAO {
           });
     });
   }
+
+
+
+
+
+setSuccessTransaction(timeTaken){
+  return new Promise((resolve, reject) => {
+    this.connection.query('INSERT INTO `timeTransaction` (`id`, `value`) VALUES (null,?)',
+    [timeTaken],
+    (err, result) => {
+      if (err) return reject(err);
+      return resolve('time Uploaded!');
+    });
+  });
+}
+
+getNumberTransactions(){
+  return new Promise((resolve, reject) => {
+    this.connection.query(`select value as value from metrics where metricName = "noTransaction"`,
+        (err, result) => {
+          if (err) return reject(err);
+          return resolve(result);
+        });
+  });
+}
+
+setNewTransaction(value){
+  return new Promise((resolve, reject) => {
+    this.connection.query(`UPDATE metrics SET value = (${value}) WHERE metricName = "noTransaction"`,
+    (err, resultt) => {
+      if (err) return reject(err);
+      return resolve('time Uploaded!');
+    });
+
+
+    
+  });
 }
 
 
 
+
+
+
+
+
+
+
+}
 module.exports = () => productsDAO;

@@ -45,6 +45,40 @@ module.exports = (app) => {
   
   
   
+      app.get('/adminTransactions', (req, res) => {
+    
+        
+        const connection = app.dao.connectionFactory();
+        const setTransaction = new app.dao.productsDAO(connection);
+        var noTrans;
+        
+        //numero de transacciones
+        setTransaction.getNumberTransactions()
+              .then((result) => noTrans = result)
+              .catch((err) => warning = 'it was not possible upload analytic values');
+          //se necesita enviar el valor de tiemposTransaccion de la base hacia los tiles de [success, fail, no y Tiempo promedio]
+        
+
+        setTimeout(() => {
+
+          metricsData = [{
+            transactions: noTrans[0].value,
+            success: 0,
+            failure: 0,
+            watchers: 0
+            }];
+
+          res.render('admin/adminTransactions', {
+            title: 'Transactions',
+            metricsData,  
+            user: req.session['user']
+          });
+        }, 100);
+        
+        
+        
+      });
+    
   
   
   

@@ -21,7 +21,7 @@
 {{ else }}
 <section class="productsCart">
   
-      
+
 
   <aside>
     <div class="promo-code">
@@ -109,10 +109,25 @@
         </a></li>
 
 
+        {{# if user }}
 
-        <li class="filter"><a>
-        <div id="paypal-button"></div>
-        </a></li>
+          <li class="filter"><a>
+          <div id="paypal-button"></div>
+          </a></li>
+
+
+      
+
+        {{else}}
+        
+          <li class="filter"><a class="btn btn-primary rounded-pill whiteText" href="/sign-in"><label class="whiteText">Inicie sesión para realizar su pago</label></a></li>
+
+        
+        {{/if}}
+
+
+
+        
 
       </ul>
     </nav>
@@ -159,7 +174,9 @@
     onAuthorize: function(data, actions) {
       return actions.payment.execute().then(function() {
         // Show a confirmation message to the buyer
-        window.alert('Thank you for your purchase!');
+        window.location.href = "/successPurchase";
+        window.alert('¡Gracias por su compra!');
+        
       });
     }
   }, '#paypal-button');
