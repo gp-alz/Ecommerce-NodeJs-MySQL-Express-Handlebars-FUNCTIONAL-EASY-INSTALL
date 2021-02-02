@@ -142,7 +142,7 @@ class productsDAO {
 
 
 
-setSuccessTransaction(timeTaken){
+setSuccessTime(timeTaken){
   return new Promise((resolve, reject) => {
     this.connection.query('INSERT INTO `timeTransaction` (`id`, `value`) VALUES (null,?)',
     [timeTaken],
@@ -152,6 +152,30 @@ setSuccessTransaction(timeTaken){
     });
   });
 }
+
+
+
+setSuccessTransaction(value){
+  return new Promise((resolve, reject) => {
+    this.connection.query(`UPDATE metrics SET value = (${value}) WHERE metricName = "successTransaction"`,
+    (err, resultt) => {
+      if (err) return reject(err);
+      return resolve('time Uploaded!');
+    });
+
+  });
+}
+
+getNumberSuccessTransactions(){
+  return new Promise((resolve, reject) => {
+    this.connection.query(`select value as value from metrics where metricName = "successTransaction"`,
+        (err, result) => {
+          if (err) return reject(err);
+          return resolve(result);
+        });
+  });
+}
+
 
 getNumberTransactions(){
   return new Promise((resolve, reject) => {

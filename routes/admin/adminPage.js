@@ -59,12 +59,18 @@ module.exports = (app) => {
           //se necesita enviar el valor de tiemposTransaccion de la base hacia los tiles de [success, fail, no y Tiempo promedio]
         
 
+        setTransaction.getNumberSuccessTransactions()
+          .then((result) => successTrans = result)
+          .catch((err) => warning = 'it was not possible upload analytic values');
+        
+
         setTimeout(() => {
 
+          failTrans = noTrans[0].value - successTrans[0].value
           metricsData = [{
             transactions: noTrans[0].value,
-            success: 0,
-            failure: 0,
+            success: successTrans[0].value,
+            failure: failTrans,
             watchers: 0
             }];
 

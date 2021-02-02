@@ -136,14 +136,23 @@ module.exports = (app) => {
     var timeTaken = Date.now() - parseInt(timeStart);
 
     var timeInt = parseInt((timeTaken/1000));
-
+    var value;
     //register metric on db
     const connection = app.dao.connectionFactory();
     const setMetric = new app.dao.productsDAO(connection);
 
-    setMetric.setSuccessTransaction(timeInt)
+    //register time taken to complete transaction on TimeTable
+    setMetric.setSuccessTime(timeInt)
           .then((result) => value = result)
           .catch((err) => warning = 'it was not possible upload analytic values');
+
+    setTimeout(() => {
+      setMetric.setSuccessTransaction(value[0].value+1)
+          .then((result) => total = result)
+          .catch((err) => warning = 'it was not possible upload analytic values');
+    }, 100);
+
+    
 
     res.clearCookie('productsInCart').redirect('/cart');
     
