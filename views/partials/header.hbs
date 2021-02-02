@@ -1,8 +1,9 @@
-<header id="header">
+<header id="header" lang="en">
 
 
   <div class="listeds">
     <div class="top">
+
     <a href="/" class="logo" id="hf">bāzār</a>
     
     <script>
@@ -22,9 +23,19 @@
 
       
       <li class="link"><a href="/order/price" id="hp">
+
+
+    <a href="/" class="logo">bāzār</a>
+    <ul class="links">
+
+
+
+      <li class="link"><a href="/order/price">
+
       <img src="/img/icons/ic_add_list.png" alt="Items in cart">
-       Productos
+       {{{__ "Productos"}}}&nbsp
       </a></li>
+
       
       <script>
         const hotkeys2 = (e) => {
@@ -38,12 +49,15 @@
         document.onkeyup = hotkeys2;
       </script>
 
-      
+
+
+
       <li class="link">
         <a href="/cart" id="hc">
       <img src="/img/icons/ic_shopping_cart.png" alt="Items in cart">
-       Carrito
+       {{{__ "Carrito"}}} &nbsp
       </a></li>
+
       
       <script>
         const hotkeys3 = (e) => {
@@ -57,52 +71,83 @@
         document.onkeyup = hotkeys3;
       </script>
       
+
+
+      <li class="link">
+        <a href="/ayuda">
+
+       {{{__ "Ayuda"}}}&nbsp
+      </a></li>
+
+
       {{# if user.admin }}
-      
+
       <li class="link"><a href="/adminPage">
       <img src="/img/icons/ic_account_circle.png" alt="Sign In">
-       Administrador
+       {{{__ "Administrador"}}}&nbsp
       </a></li>
-      
+
       {{/if}}
 
-      
-      
+
+
+
+
+
+
+
+
       {{# if user }}
+
       <li class="link">
-        
+
+
+      <li class="link mx-3">
+
+
         <a href="/log-out">
-        <img src="/img/icons/ic_arrow_down.png" alt="Sign In"> Cerrar sesión
+        <img src="/img/icons/ic_arrow_down.png" alt="Sign In"> {{{__ "Cerrar sesión"}}}&nbsp
         </a>
       </li>
+
       <li class="link">
-        <a> 
+        <a>
+
+
+      <li class="link mx-3">
+        <a>
+
           <img src="/img/icons/ic_account_circle.png" alt="Sign In"> {{user.username}}
         </a>
       </li>
         {{ else }}
+
         <li class="link"><a href="/sign-in">
-        <img src="/img/icons/ic_arrow_right.png" alt="Items in cart"> Iniciar sesión
-        </a></li> 
+        <img src="/img/icons/ic_arrow_right.png" alt="Items in cart"> {{{__ "Iniciar sesión"}}}
+        </a></li>
+
+
+
         {{/if}}
     </ul>
-
+    <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+      <option value="/"><a href="/">{{{__ "Idioma"}}}</a></option>
+      <option value="/"><a href="/">{{{__ "Español"}}}</a></option>
+      <option value="en"><a href="/en">{{{__ "Inglés"}}}</a></option>
+      <option value="fr"><a href="/fr">{{{__ "Francés"}}}</a></option>
+    </select>
     <ul class="social-links">
       <li class="link"><img src="/img/icons/social/ic_facebook.png" alt="Facebook"></li>
       <li class="link"><img src="/img/icons/social/ic_twitter.png" alt="Twitter"></li>
       <li class="link"><img src="/img/icons/social/ic_instagram.png" alt="Instagram"></li>
       <li class="link"><img src="/img/icons/social/ic_youtube.png" alt="Youtube"></li>
     </ul>
-    
+
     </div>
 
-   
-  
+
+
   </div>
 
-
-
-
-  
 
 </header>

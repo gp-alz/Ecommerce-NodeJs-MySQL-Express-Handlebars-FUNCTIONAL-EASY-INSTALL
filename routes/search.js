@@ -15,7 +15,17 @@ module.exports = (app) => {
           products: result,
           success, warning,
           active_tab: ActiveTab,
+          user: req.session['user']
         }))
         .catch((err) => console.log(err));
+  });
+  app.use(function (req, res, next) {
+    var locale = 'es';
+    req.setLocale(locale);
+    res.locals.language = locale;
+    next();
+});
+  app.get('/ayuda', (req,res)=>{
+    res.render('search/p1');
   });
 };

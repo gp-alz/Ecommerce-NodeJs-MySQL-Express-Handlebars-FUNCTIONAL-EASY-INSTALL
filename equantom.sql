@@ -111,6 +111,63 @@ INSERT INTO `users` (`id`,`username`,`admin`, `email`, `password`) VALUES
 (13, 'PolAlz',1, 'gp99alz@gmail.com', '$2a$10$/LCPJhDs1UZA.mgDezN/8uJL/WU.ISG8b6WziTD5ufH4OchZb9GoS');
 
 --
+
+
+-- Store TIMES OF TRANSACTION for `metrics`
+CREATE TABLE `timeTransaction` (
+  `id` int(11) NOT NULL,
+  `value` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `transactiontme`
+--
+
+INSERT INTO `timeTransaction` (`id`, `value`) VALUES
+(1,30);
+
+
+
+
+-- Store RESULTS for all `metrics`
+CREATE TABLE `metrics` (
+  `id` int(11) NOT NULL,
+  `metricName` varchar(255) NOT NULL,
+  `value` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+INSERT   INTO `metrics` (`id`,`metricName`,`value`) VALUES
+(1, 'successTransaction',0),
+(2, 'failedTransaction',0),
+(3, 'noTransaction',0);
+
+
+
+
+
+
+
+ALTER TABLE `metrics`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `metricName` (`metricName`),
+  ADD KEY `value` (`value`);
+
+  ALTER TABLE `timeTransaction`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `value` (`value`);
+
+ALTER TABLE `metrics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  
+  ALTER TABLE `timeTransaction`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+
+
+
 -- Indexes for dumped tables
 --
 
