@@ -19,4 +19,13 @@ module.exports = (app) => {
         }))
         .catch((err) => console.log(err));
   });
+  app.use(function (req, res, next) {
+    var locale = 'es';
+    req.setLocale(locale);
+    res.locals.language = locale;
+    next();
+});
+  app.get('/ayuda', (req,res)=>{
+    res.render('search/p1');
+  });
 };
