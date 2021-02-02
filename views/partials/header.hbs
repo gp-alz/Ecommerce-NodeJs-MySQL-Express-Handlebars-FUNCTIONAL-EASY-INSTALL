@@ -3,8 +3,10 @@
 
   <div class="listeds">
     <div class="top">
+      
     <a href="/" class="logo">bāzār</a>
     <ul class="links">
+
 
 
       <li class="link"><a href="/order/price">
@@ -30,24 +32,67 @@
 
       {{/if}}
 
+      <li class="link mx-3">
+      <a href="/order/price"><img src="/img/icons/ic_add_list.png" alt="Items in cart"> Productos
+      </a>
+      </li>
+      
+
+      
+      <li class="link mx-3">
+        <a href="/cart">
+      <img src="/img/icons/ic_shopping_cart.png" alt="Items in cart"> Carrito
+      </a></li>
+      
+      
+      
+
+
 
 
       {{# if user }}
+
       <li class="link">
+
+
+      <li class="link mx-3">
+        
 
         <a href="/log-out">
         <img src="/img/icons/ic_arrow_down.png" alt="Sign In"> {{{__ "Cerrar sesión"}}}
         </a>
       </li>
+
       <li class="link">
         <a>
+
+
+
+      {{# if user.admin }}
+      
+      <li class="link mx-3"><a href="/adminPage">
+      <img src="/img/icons/ic_account_circle.png" alt="Sign In">
+       Administrador
+      </a></li>
+      
+      {{/if}}
+
+      <li class="link mx-3">
+        <a> 
+
           <img src="/img/icons/ic_account_circle.png" alt="Sign In"> {{user.username}}
         </a>
       </li>
         {{ else }}
+
         <li class="link"><a href="/sign-in">
         <img src="/img/icons/ic_arrow_right.png" alt="Items in cart"> {{{__ "Iniciar sesión"}}}
         </a></li>
+
+        <li class="link mx-3"><a href="/sign-in">
+        <img src="/img/icons/ic_arrow_right.png" alt="Items in cart">Iniciar sesión
+        </a></li> 
+
         {{/if}}
     </ul>
     <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
@@ -68,10 +113,6 @@
 
 
   </div>
-
-
-
-
 
 
 </header>
